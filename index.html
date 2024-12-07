@@ -15,7 +15,9 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
   <img src="http://localhost:9090/getRevenue" crossorigin="anonymous">
 
   <!-- Vendor CSS Files -->
@@ -213,7 +215,8 @@
                     </div>
                     <div class="ps-3">
                       <h6>145</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      <span class="text-success small pt-1 fw-bold">12%</span> <span
+                        class="text-muted small pt-2 ps-1">increase</span>
 
                     </div>
                   </div>
@@ -248,7 +251,8 @@
                     </div>
                     <div class="ps-3">
                       <h6 id="revenue">$3,264</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      <span class="text-success small pt-1 fw-bold">8%</span> <span
+                        class="text-muted small pt-2 ps-1">increase</span>
                     </div>
                   </div>
                 </div>
@@ -283,7 +287,8 @@
                     </div>
                     <div class="ps-3">
                       <h6>1244</h6>
-                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+                      <span class="text-danger small pt-1 fw-bold">12%</span> <span
+                        class="text-muted small pt-2 ps-1">decrease</span>
 
                     </div>
                   </div>
@@ -294,13 +299,13 @@
             </div><!-- End Customers Card -->
 
             <!-- Reports -->
-             <div class="col-12">
+            <div class="col-12">
               <div class="card">
 
                 <div class="card-body">
                   <h5 class="card-title">Reports <span>/Month</span></h5>
 
-                  
+
                   <div id="reportsChart"></div>
 
                   <!-- <script>
@@ -349,67 +354,169 @@
                       }).render();
                     });
                   </script> -->
- 
-            
+
+
 
                   <script>
-                          document.addEventListener("DOMContentLoaded", () => {
-                              const orderData = [10, 20, 15, 30]; // Dữ liệu số lượng đơn hàng đã bán trong tháng
-                  
-                              new ApexCharts(document.querySelector("#reportsChart"), {
-                                  series: [{
-                                      name: 'Orders',
-                                      data: orderData,
-                                  }],
-                                  chart: {
-                                      height: 350,
-                                      type: 'bar',
-                                      toolbar: {
-                                          show: false
-                                      },
-                                  },
-                                  plotOptions: {
-                                      bar: {
-                                          horizontal: false,
-                                          columnWidth: '55%',
-                                          endingShape: 'rounded'
-                                      },
-                                  },
-                                  dataLabels: {
-                                      enabled: false
-                                  },
-                                  stroke: {
-                                      show: true,
-                                      width: 2,
-                                      colors: ['transparent']
-                                  },
-                                  xaxis: {
-                                      categories: ["Week1", "Week2", "Week3", "Week4"], // Các ngày trong tháng
-                                  },
-                                  yaxis: {
-                                      title: {
-                                          text: 'Number of Order'
-                                      }
-                                  },
-                                  fill: {
-                                      opacity: 1
-                                  },
-                                  tooltip: {
-                                      y: {
-                                          formatter: function (val) {
-                                              return val + " Order";
-                                          }
-                                      }
-                                  }
-                              }).render();
-                          });
-                    </script>
-                          
+                    document.addEventListener("DOMContentLoaded", () => {
+                      const orderData = [10, 20, 15, 30]; // Dữ liệu số lượng đơn hàng đã bán trong tháng
+
+                      new ApexCharts(document.querySelector("#reportsChart"), {
+                        series: [{
+                          name: 'Orders',
+                          data: orderData,
+                        }],
+                        chart: {
+                          height: 350,
+                          type: 'bar',
+                          toolbar: {
+                            show: false
+                          },
+                        },
+                        plotOptions: {
+                          bar: {
+                            horizontal: false,
+                            columnWidth: '55%',
+                            endingShape: 'rounded'
+                          },
+                        },
+                        dataLabels: {
+                          enabled: false
+                        },
+                        stroke: {
+                          show: true,
+                          width: 2,
+                          colors: ['transparent']
+                        },
+                        xaxis: {
+                          categories: ["Week1", "Week2", "Week3", "Week4"], // Các ngày trong tháng
+                        },
+                        yaxis: {
+                          title: {
+                            text: 'Number of Order'
+                          }
+                        },
+                        fill: {
+                          opacity: 1
+                        },
+                        tooltip: {
+                          y: {
+                            formatter: function (val) {
+                              return val + " Order";
+                            }
+                          }
+                        }
+                      }).render();
+                    });
+                  </script>
+
+
                 </div>
+
+
 
               </div>
             </div>
             <!-- End Reports -->
+
+            <!-- Sơ đồ-->
+            <div class="col-12">
+              <div class="card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Logins <span>/Month</span></h5>
+                  <div id="loginChart" style="width: 100%; height: 350px;"></div>
+
+                  <script>
+                    async function fetchLoginData() {
+                      try {
+                        const response = await fetch('http://localhost:9090/logins/login-statistics?month=2024-12');
+
+                        // Kiểm tra xem yêu cầu có thành công không
+                        if (!response.ok) {
+                          throw new Error('Network response was not ok');
+                        }
+
+                        // Parse dữ liệu JSON từ API
+                        const data = await response.json();
+
+                        // Gọi hàm cập nhật biểu đồ với dữ liệu đã lấy
+                        updateChart(data);
+                      } catch (error) {
+                        console.error('Error fetching login data:', error);
+                      }
+                    }
+
+                    // Hàm cập nhật biểu đồ với dữ liệu lấy từ API
+                    function updateChart(data) {
+                      // Lấy danh sách các ngày trong tháng
+                      const days = Object.keys(data);  // Các ngày trong tháng (2024-12-01, 2024-12-02, ...)
+
+                      // Lấy số lần đăng nhập cho từng ngày
+                      const loginData = Object.values(data);  // Số lần đăng nhập cho từng ngày (10, 12, 15, ...)
+
+                      // Tạo biểu đồ với ApexCharts
+                      new ApexCharts(document.querySelector("#loginChart"), {
+                        series: [{
+                          name: 'Login Count',
+                          data: loginData,  // Số lần đăng nhập cho từng ngày
+                        }],
+                        chart: {
+                          height: 350,
+                          type: 'line',  // Loại biểu đồ là đường
+                          toolbar: {
+                            show: false
+                          },
+                        },
+                        stroke: {
+                          curve: 'smooth',  // Làm cho đường mượt mà
+                          width: 2,
+                        },
+                        xaxis: {
+                          categories: days,  // Các ngày trong tháng
+                          title: {
+                            text: 'Date'
+                          },
+                          labels: {
+                            rotate: -45  // Xoay nhãn ngày để dễ đọc
+                          }
+                        },
+                        yaxis: {
+                          title: {
+                            text: 'Number of Logins'
+                          },
+                        },
+                        fill: {
+                          opacity: 1
+                        },
+                        tooltip: {
+                          y: {
+                            formatter: function (val) {
+                              return val + " Logins";  // Hiển thị tooltip cho mỗi điểm dữ liệu
+                            }
+                          }
+                        },
+                        markers: {
+                          size: 5,  // Kích thước điểm đánh dấu trên đường
+                          hover: {
+                            size: 7
+                          }
+                        }
+                      }).render();
+                    }
+
+                    // Gọi hàm để lấy dữ liệu khi trang được tải
+                    document.addEventListener("DOMContentLoaded", () => {
+                      fetchLoginData();  // Lấy dữ liệu từ API khi trang được tải
+                    });
+
+                  </script>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Sơ đồ end-->
 
             <!-- Recent Sales -->
             <div class="col-12">
@@ -534,7 +641,8 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function () {
       responseMessage.className = 'text-danger';
     }
 
-  
+
   });
 
   // Hàm hiển thị kết quả tìm kiếm
@@ -297,34 +297,33 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     //   // Hàm để thiết lập phân trang
-  // function setupPagination() {
-  //   pagination.innerHTML = '';
-  //   const pageCount = Math.ceil(products.length / itemsPerPage);
+    // function setupPagination() {
+    //   pagination.innerHTML = '';
+    //   const pageCount = Math.ceil(products.length / itemsPerPage);
 
-  //   for (let i = 1; i <= pageCount; i++) {
-  //     const pageItem = document.createElement('li');
-  //     pageItem.className = 'page-item';
+    //   for (let i = 1; i <= pageCount; i++) {
+    //     const pageItem = document.createElement('li');
+    //     pageItem.className = 'page-item';
 
-  //     const pageLink = document.createElement('a');
-  //     pageLink.className = 'page-link';
-  //     pageLink.href = '#';
-  //     pageLink.textContent = i;
+    //     const pageLink = document.createElement('a');
+    //     pageLink.className = 'page-link';
+    //     pageLink.href = '#';
+    //     pageLink.textContent = i;
 
-  //     pageLink.addEventListener('click', function (event) {
-  //       event.preventDefault();
-  //       currentPage = i;
-  //       displayProducts();
-  //     });
+    //     pageLink.addEventListener('click', function (event) {
+    //       event.preventDefault();
+    //       currentPage = i;
+    //       displayProducts();
+    //     });
 
-  //     pageItem.appendChild(pageLink);
-  //     pagination.appendChild(pageItem);
-  //   }
-  // }
+    //     pageItem.appendChild(pageLink);
+    //     pagination.appendChild(pageItem);
+    //   }
+    // }
 
   }
 });
-
-//Kết thục hiện thị lọc sản phẩm theo giá
+//Kết thúc hiện thị lọc sản phẩm theo giá
 
 
 
@@ -403,7 +402,34 @@ async function fetchNewProducts() {
 }
 fetchNewProducts();
 
-//
+//login
+function login() {
+
+  <p id="message"></p>
+
+  document.getElementById("loginForm").addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    try {
+      const response = await fetch("/auth/log-in", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({ username, password }),
+      });
+
+
+      if (response.ok) {
+        // Chuyển hướng đến trang khác nếu đăng nhập thành công
+        window.location.href = "/index.html";
+      }
+    } catch (error) {
+      console.error("Lỗi:", error);
+      document.getElementById("message").textContent = "Có lỗi xảy ra!";
+    }
+  });
+}
 
 
 
